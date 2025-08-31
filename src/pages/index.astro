@@ -1,16 +1,127 @@
 ---
-
+import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/Navigation.astro';
+import Footer from '../components/Footer.astro';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout title="Gnymble - Compliant SMS for Cigar Retailers">
+  <Navigation />
+  
+  <main>
+    <!-- Hero Section -->
+    <div 
+      class="min-h-screen bg-black relative"
+      style={`
+        background-image: url('/cigar.png');
+        background-size: 40%;
+        background-position: center;
+        background-repeat: no-repeat;
+      `}
+    >
+      <!-- Background overlay for opacity -->
+      <div class="absolute inset-0 bg-black opacity-75"></div>
+      
+      <!-- Logo - Fixed position higher up -->
+      <div class="absolute top-1/4 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+        <h1 class="text-6xl lg:text-8xl font-black tracking-tight animate-fade-in">
+          <img
+            src="/gnymble-text-logo.svg"
+            alt="Gnymble Logo"
+            class="w-[600px] h-auto"
+          />
+        </h1>
+      </div>
+
+      <!-- Typewriter text - Positioned below logo -->
+      <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+        <div class="text-2xl lg:text-4xl font-bold text-white text-center animate-fade-in">
+          Compliant texting for cigar retailers...
+        </div>
+      </div>
+
+      <!-- Demo Access Button and Scroll Down Arrow -->
+      <div class="absolute bottom-32 left-1/2 transform -translate-x-1/2 flex flex-col items-center space-y-6">
+        <a 
+          href="/contact"
+          class="bg-orange-500 hover:bg-orange-600 text-white font-bold py-4 px-8 rounded-lg shadow-demo hover:shadow-3xl transition-all duration-300 transform hover:scale-105"
+        >
+          Request Demo Access
+        </a>
+        <div class="animate-bounce">
+          <div class="w-6 h-6 border-b-2 border-r-2 border-white rotate-45 transform origin-center"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Features Section -->
+    <section class="py-20 bg-gradient-card">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl font-bold text-white mb-4">
+            Why Choose Gnymble?
+          </h2>
+          <p class="text-xl text-gray-400 max-w-3xl mx-auto">
+            Built specifically for premium retailers who value compliance, sophistication, and results.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="bg-card p-8 rounded-lg shadow-elegant">
+            <div class="w-12 h-12 bg-orange-500 rounded-lg mb-6 flex items-center justify-center">
+              <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold text-white mb-4">SMS Compliance</h3>
+            <p class="text-gray-400">
+              Stay compliant with TCPA, CAN-SPAM, and industry regulations. Automated opt-in/opt-out management.
+            </p>
+          </div>
+
+          <div class="bg-card p-8 rounded-lg shadow-elegant">
+            <div class="w-12 h-12 bg-orange-500 rounded-lg mb-6 flex items-center justify-center">
+              <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold text-white mb-4">Premium Experience</h3>
+            <p class="text-gray-400">
+              Sophisticated messaging platform designed for luxury brands and premium customer relationships.
+            </p>
+          </div>
+
+          <div class="bg-card p-8 rounded-lg shadow-elegant">
+            <div class="w-12 h-12 bg-orange-500 rounded-lg mb-6 flex items-center justify-center">
+              <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold text-white mb-4">Powerful Automation</h3>
+            <p class="text-gray-400">
+              Smart automation workflows that respect your customers' time and preferences.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fade-in {
+    animation: fade-in 1s ease-out;
+  }
+</style>

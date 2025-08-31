@@ -1,0 +1,144 @@
+---
+const { pathname } = Astro.url;
+---
+
+<nav class="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-sm">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+      <!-- Left side - Logo and navigation links -->
+      <div class="flex items-center space-x-6">
+        <a href="/" class="hover:opacity-80 transition-opacity duration-300">
+          <img 
+            src="/gnymble-icon-logo.svg" 
+            alt="Gnymble" 
+            class="h-8 w-auto"
+          />
+        </a>
+        <div class="hidden md:flex items-center space-x-6">
+          <a 
+            href="/solutions"
+            class={`transition-colors text-sm font-medium ${
+              pathname === '/solutions' 
+                ? 'text-orange-400' 
+                : 'text-white hover:text-gray-300'
+            }`}
+          >
+            Solutions
+          </a>
+          <a 
+            href="/pricing"
+            class={`transition-colors text-sm font-medium ${
+              pathname === '/pricing' 
+                ? 'text-orange-400' 
+                : 'text-white hover:text-gray-300'
+            }`}
+          >
+            Pricing
+          </a>
+          <a 
+            href="/testimonials"
+            class={`transition-colors text-sm font-medium ${
+              pathname === '/testimonials' 
+                ? 'text-orange-400' 
+                : 'text-white hover:text-gray-300'
+            }`}
+          >
+            Testimonials
+          </a>
+          <a 
+            href="/about"
+            class={`transition-colors text-sm font-medium ${
+              pathname === '/about' 
+                ? 'text-orange-400' 
+                : 'text-white hover:text-gray-300'
+            }`}
+          >
+            About
+          </a>
+        </div>
+      </div>
+
+      <!-- Right side - Contact button -->
+      <div class="flex items-center space-x-4">
+        <a 
+          href="/contact"
+          class={`px-4 py-2 rounded-md text-sm font-medium transition-all duration-300 ${
+            pathname === '/contact'
+              ? 'bg-orange-500/20 text-orange-400 border border-orange-400'
+              : 'bg-black/50 text-white border border-orange-500/50 hover:bg-orange-500/10 hover:border-orange-400'
+          }`}
+        >
+          Contact Us
+        </a>
+        
+        <!-- Mobile menu button -->
+        <button 
+          id="mobile-menu-button"
+          class="md:hidden text-white hover:text-gray-300 transition-colors"
+        >
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Menu -->
+    <div id="mobile-menu" class="hidden md:hidden">
+      <div class="px-2 pt-2 pb-3 space-y-1 bg-black/90 backdrop-blur-sm border-t border-orange-500/20">
+        <a 
+          href="/solutions"
+          class={`block px-3 py-2 text-base font-medium transition-colors ${
+            pathname === '/solutions'
+              ? 'text-orange-400 bg-orange-500/20'
+              : 'text-white hover:text-orange-400 hover:bg-orange-500/10'
+          }`}
+        >
+          Solutions
+        </a>
+        <a 
+          href="/pricing"
+          class={`block px-3 py-2 text-base font-medium transition-colors ${
+            pathname === '/pricing'
+              ? 'text-orange-400 bg-orange-500/20'
+              : 'text-white hover:text-orange-400 hover:bg-orange-500/10'
+          }`}
+        >
+          Pricing
+        </a>
+        <a 
+          href="/testimonials"
+          class={`block px-3 py-2 text-base font-medium transition-colors ${
+            pathname === '/testimonials'
+              ? 'text-orange-400 bg-orange-500/20'
+              : 'text-white hover:text-orange-400 hover:bg-orange-500/10'
+          }`}
+        >
+          Testimonials
+        </a>
+        <a 
+          href="/about"
+          class={`block px-3 py-2 text-base font-medium transition-colors ${
+            pathname === '/about'
+              ? 'text-orange-400 bg-orange-500/20'
+              : 'text-white hover:text-orange-400 hover:bg-orange-500/10'
+          }`}
+        >
+          About
+        </a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<script>
+  // Mobile menu toggle functionality
+  const mobileMenuButton = document.getElementById('mobile-menu-button');
+  const mobileMenu = document.getElementById('mobile-menu');
+  
+  if (mobileMenuButton && mobileMenu) {
+    mobileMenuButton.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+  }
+</script>
