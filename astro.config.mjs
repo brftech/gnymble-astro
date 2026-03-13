@@ -6,6 +6,8 @@ import tailwindcss from '@tailwindcss/vite';
 
 // https://astro.build/config
 export default defineConfig({
+  site: 'https://brftech.github.io',
+  base: '/gnymble-astro',
   integrations: [react()],
 
   vite: {
